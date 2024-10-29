@@ -5,7 +5,9 @@ import com.employees.webapp.model.Employee;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -35,7 +37,7 @@ public class EmployeeProxy {
         return response.getBody();
     }
 
-    public Employee getEmployee(final Integer id){
+    public Employee getEmployee(final Long id){
         String baseApiUrl=props.getApiUrl();
         String getEmployeeUrl = baseApiUrl + "/employees/"+id;
         System.out.println("EmployeeProxy *** getEmployeeUrl : " + getEmployeeUrl);
@@ -63,15 +65,34 @@ public class EmployeeProxy {
                 restTemplate.exchange(
                         saveEmployeeUrl,
                         HttpMethod.POST,
-                        null,
+                        new HttpEntity<>(employee),
                         Employee.class
                 );
+
         System.out.println("EmployeeProxy *** saveEmployee response.getBody() : " + response.getBody());
         log.debug("Save Employee call "+response.getStatusCode().toString());
         return response.getBody();
     }
 
-    public void deleteEmployee(final Integer id){
+    public Employee updateEmployee(Employee employee){
+        String baseApiUrl=props.getApiUrl();
+        String updateEmployeeUrl = baseApiUrl + "/employees";
+        System.out.println("EmployeeProxy *** updateEmployeeUrl : " + updateEmployeeUrl);
+
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<Employee> response =
+                restTemplate.exchange(
+                        updateEmployeeUrl,
+                        HttpMethod.PUT,
+                        new HttpEntity<>(employee),
+                        Employee.class
+                );
+        System.out.println("EmployeeProxy *** updateEmployee response.getBody() : " + response.getBody());
+        log.debug("Update Employee call "+response.getStatusCode().toString());
+        return response.getBody();
+    }
+
+    public void deleteEmployee(final Long id){
         String baseApiUrl=props.getApiUrl();
         String deleteEmployeeUrl = baseApiUrl + "/employees/"+id;
         System.out.println("EmployeeProxy *** deleteEmployeeUrl : " + deleteEmployeeUrl);

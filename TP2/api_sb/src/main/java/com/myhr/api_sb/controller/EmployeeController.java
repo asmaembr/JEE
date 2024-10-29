@@ -3,10 +3,7 @@ package com.myhr.api_sb.controller;
 import com.myhr.api_sb.model.Employee;
 import com.myhr.api_sb.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -22,17 +19,21 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees/{id}")
-    public Optional<Employee> getEmployee(final Long id) {
+    public Optional<Employee> getEmployee(@PathVariable final Long id) {
         return employeeService.getEmployee(id);
     }
 
     @PostMapping("/employees")
-    public Employee saveEmployee(Employee employee) {
+    public Employee saveEmployee(@RequestBody Employee employee) {
         return employeeService.saveEmployee(employee);
     }
 
+    @PutMapping("/employees")
+    public Employee updateEmployee( @RequestBody Employee employee) {
+        return employeeService.updateEmployee(employee);
+    }
     @DeleteMapping("/employees/{id}")
-    public void deleteEmployee(final Long id) {
+    public void deleteEmployee(@PathVariable final Long id) {
         employeeService.deleteEmployee(id);
     }
 

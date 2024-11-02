@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initialscale=1">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <title>Employee & Departement Web Application</title>
+    <style>
+        body {
+            padding-top: 50px;
+        }
+        .special {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Système de gestion des
+                departements</a>
+        </div>
+    </div>
+</nav>
+<div class="container special">
+    <h2 th:if="${departement.id!=null}" class="h2">Modification d'un departement</h2>
+    <h2 th:if="${departement.id==null}" class="h2">Création d'un departement</h2>
+    <div>
+        <form method="post"
+              th:action="@{/saveDepartement}" th:object="${departement}">
+            <div class="form-group">
+                <input
+                        type="hidden" th:field="*{id}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="DescriptionInput">Description</label>
+                <input
+                        type="text" th:field="*{description}" class="form-control"
+                        id="DescriptionInput"
+                        aria-describedby="DescriptionHelp" placeholder="Saisir la description">
+                <small
+                        id="firstNameHelp" class="form-text text-muted">Merci d'écrire la description du departement.</small>
+            </div>
+            <div class="form-group">
+                <label for="emplacementInput">emplacement</label>
+                <input
+                        type="text" th:field="*{emplacement}" class="form-control"
+                        id="emplacementInput"
+                        aria-describedby="emplacementHelp" placeholder="Saisir l'emplacement">
+                <small
+                        id="emplacementHelp" class="form-text text-muted">Merci d'écrire l'emplacement du departement.</small>
+            </div>
+
+            <button type="submit" th:if="${departement.id!=null}" class="btn btn-success">Modifier</button>
+            <button type="submit" th:if="${departement.id==null}" class="btn btn-outline-success">Crée</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

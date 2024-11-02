@@ -17,11 +17,11 @@
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
     <div class="container-fluid">
         <a class="navbar-brand" href=".">Système de gestion des employees</a>
-        <a class="navbar-brand" href="/departements">Système de gestion des departements</a>
+        <a class="navbar-brand" href="/departements">Système de gestion des départements</a>
     </div>
 </nav>
 <div class="container special">
-    <h2 class="h2">Liste des departements</h2>
+    <h2 class="h2">Liste des départements</h2>
     <div class="table-responsive">
         <table class="table table-striped table-sm text-center ">
             <thead>
@@ -35,15 +35,15 @@
             <tr th:if="${departements==null}">
                 <td colspan="3">Aucun departement en base de données</td>
             </tr>
-            <tr th:each="employee: ${departements}">
-                <td><span th:text="${departement}">Prénom </span>
+            <tr th:each="departement: ${departements}">
+                <td><span th:text="${departement.description}">Description </span>
                 </td>
-                <td><span th:text="${employee.lastName}">Nom </span></td>
+                <td><span th:text="${departement.emplacement}">Emplacement </span></td>
                 <td class=" d-flex align-content-between gap-2">
-                    <a th:href="@{/createEmployee/{id}(id=${employee.id})}">
+                    <a th:href="@{/departements/createDepartement/{id}(id=${departement.id})}">
                         <button class="btn btn-info">Modifier</button>
                     </a>
-                    <form th:action="@{/deleteEmployee/{id}(id=${employee.id})}" th:method="post">
+                    <form th:action="@{/departements/deleteDepartement/{id}(id=${departement.id})}" th:method="post">
                         <button type="submit" class="btn btn-outline-danger">Supprimer</button>
                     </form>
                 </td>
@@ -51,7 +51,7 @@
             </tbody>
         </table>
     </div>
-    <h4><a type="button" class="btn btn-success" th:href="@{/createEmployee}">Ajouter un nouvel employée</a></h4>
+    <h4><a type="button" class="btn btn-success" th:href="@{/departements/createDepartement}">Ajouter un nouvel departement</a></h4>
 </div>
 </body>
 </html>

@@ -19,7 +19,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">Système de gestion des
+            <a class="navbar-brand" href="/departements">Système de gestion des
                 departements</a>
         </div>
     </div>
@@ -29,7 +29,7 @@
     <h2 th:if="${departement.id==null}" class="h2">Création d'un departement</h2>
     <div>
         <form method="post"
-              th:action="@{/saveDepartement}" th:object="${departement}">
+              th:action="@{/departements/saveDepartement}" th:object="${departement}">
             <div class="form-group">
                 <input
                         type="hidden" th:field="*{id}" class="form-control">

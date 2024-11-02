@@ -16,5 +16,6 @@ public class WebappApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println("API URL: " + properties.getApiUrl());
+        System.out.println("API2 URL: " + properties.getApi2URl());
     }
 }

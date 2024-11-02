@@ -15,7 +15,6 @@ public class EmployeeController {
 
     @GetMapping({"/", "employees"})
     public String employees(Model model) {
-        System.out.println("EmployeeController *** employees(Model) ");
         Iterable<Employee> listEmployee = service.getEmployees();
         model.addAttribute("employees", listEmployee);
         return "home";
@@ -23,7 +22,6 @@ public class EmployeeController {
 
     @PostMapping("/deleteEmployee/{id}")
     public String deleteEmployee(@PathVariable("id") final Long id) {
-        System.out.println("EmployeeController *** deleteEmployee(Long) ");
         service.deleteEmployee(id);
         return "redirect:/";
     }

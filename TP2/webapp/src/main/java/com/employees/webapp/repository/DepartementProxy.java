@@ -39,7 +39,7 @@ public class DepartementProxy {
     public  Departement getDepartement(final Long id){
         String baseApiUrl = props.getApi2URl();
         String getDepartementUrl = baseApiUrl+"/departements/"+id;
-
+        System.out.println("getDepartementUrl = " + getDepartementUrl);
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Departement> response =
                 restTemplate.exchange(
@@ -48,6 +48,7 @@ public class DepartementProxy {
                   null,
                   Departement.class
                 );
+        System.out.println("response = " + response);
         log.debug("Get Departement call " + response.getStatusCode());
         return response.getBody();
     }
@@ -85,7 +86,7 @@ public class DepartementProxy {
     }
 
     public void deleteDepartement(final Long id ){
-        String baseApiUrl=props.getApiUrl();
+        String baseApiUrl=props.getApi2URl();
         String deleteDepartementUrl = baseApiUrl + "/departements/"+id;
 
         RestTemplate restTemplate = new RestTemplate();

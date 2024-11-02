@@ -20,7 +20,6 @@ public class EmployeeProxy {
     public Iterable<Employee> getEmployees(){
         String baseApiUrl=props.getApiUrl();
         String getEmployeesUrl = baseApiUrl + "/employees";
-        System.out.println("EmployeeProxy *** getEmployeesUrl : " + getEmployeesUrl);
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Iterable<Employee>> response =
@@ -31,7 +30,6 @@ public class EmployeeProxy {
                         new ParameterizedTypeReference<Iterable<Employee>>() {
                         }
                         );
-        System.out.println("EmployeeProxy *** getEmployees response.getBody() : " + response.getBody());
         log.debug("Get Employees call "+response.getStatusCode().toString());
         return response.getBody();
     }
@@ -39,7 +37,6 @@ public class EmployeeProxy {
     public Employee getEmployee(final Long id){
         String baseApiUrl=props.getApiUrl();
         String getEmployeeUrl = baseApiUrl + "/employees/"+id;
-        System.out.println("EmployeeProxy *** getEmployeeUrl : " + getEmployeeUrl);
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Employee> response =
@@ -49,7 +46,6 @@ public class EmployeeProxy {
                         null,
                         Employee.class
                 );
-        System.out.println("EmployeeProxy *** getEmployee response.getBody() : " + response.getBody());
         log.debug("Get Employee call "+response.getStatusCode().toString());
         return response.getBody();
     }
@@ -57,8 +53,6 @@ public class EmployeeProxy {
     public Employee saveEmployee(Employee employee){
         String baseApiUrl=props.getApiUrl();
         String saveEmployeeUrl = baseApiUrl + "/employees";
-        System.out.println("EmployeeProxy *** saveEmployeeUrl : " + saveEmployeeUrl);
-
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Employee> response =
                 restTemplate.exchange(
@@ -68,7 +62,6 @@ public class EmployeeProxy {
                         Employee.class
                 );
 
-        System.out.println("EmployeeProxy *** saveEmployee response.getBody() : " + response.getBody());
         log.debug("Save Employee call "+response.getStatusCode().toString());
         return response.getBody();
     }
@@ -76,7 +69,6 @@ public class EmployeeProxy {
     public Employee updateEmployee(Employee employee){
         String baseApiUrl=props.getApiUrl();
         String updateEmployeeUrl = baseApiUrl + "/employees";
-        System.out.println("EmployeeProxy *** updateEmployeeUrl : " + updateEmployeeUrl);
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Employee> response =
@@ -86,7 +78,6 @@ public class EmployeeProxy {
                         new HttpEntity<>(employee),
                         Employee.class
                 );
-        System.out.println("EmployeeProxy *** updateEmployee response.getBody() : " + response.getBody());
         log.debug("Update Employee call "+response.getStatusCode().toString());
         return response.getBody();
     }
@@ -94,7 +85,6 @@ public class EmployeeProxy {
     public void deleteEmployee(final Long id){
         String baseApiUrl=props.getApiUrl();
         String deleteEmployeeUrl = baseApiUrl + "/employees/"+id;
-        System.out.println("EmployeeProxy *** deleteEmployeeUrl : " + deleteEmployeeUrl);
 
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.exchange(

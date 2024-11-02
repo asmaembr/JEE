@@ -37,6 +37,7 @@ public class DepartementController {
     @GetMapping({"/createDepartement/{id}", "/createDepartement"})
     public String createDepartement(@PathVariable(required = false) Long id, Model model) {
         if (id != null) {
+            System.out.println("DepartementController *** createDepartement(Long) ");
             model.addAttribute("departement", service.getDepartement(id));
         } else {
             model.addAttribute("departement", new Departement());

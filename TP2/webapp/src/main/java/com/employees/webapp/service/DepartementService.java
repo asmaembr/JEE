@@ -14,6 +14,7 @@ public class DepartementService {
     private DepartementProxy departementProxy;
 
     public Departement getDepartement(final Long id) {
+        System.out.println("DepartementService *** getDepartement(Long) ");
         return departementProxy.getDepartement(id);
     }
     public Iterable<Departement> getDepartements() {

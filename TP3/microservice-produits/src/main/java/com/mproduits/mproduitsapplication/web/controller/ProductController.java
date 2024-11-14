@@ -16,10 +16,12 @@ import java.util.Optional;
 
 @RestController
 public class ProductController implements HealthIndicator {
+
     @Autowired
     ProductDao productDao;
     @Autowired
     ApplicationPropertiesConfiguration appProperties;
+
     // Affiche la liste de tous les produits disponibles
     @GetMapping(value = "/Produits")
     public List<Product> listeDesProduits() throws ProductNotFoundException {

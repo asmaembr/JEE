@@ -7,7 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableConfigurationProperties
-//@EnableDiscoveryClient
+@EnableDiscoveryClient
 public class MicroserviceProduitsApplication {
 
     public static void main(String[] args) {

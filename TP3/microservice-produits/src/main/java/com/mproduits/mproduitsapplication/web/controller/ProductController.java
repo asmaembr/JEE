@@ -9,6 +9,7 @@ import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public class ProductController implements HealthIndicator {
     ApplicationPropertiesConfiguration appProperties;
 
     // Affiche la liste de tous les produits disponibles
-    @GetMapping(value = "/Produits")
+    @GetMapping("/produits")
     public List<Product> listeDesProduits() throws ProductNotFoundException {
         System.out.println(" ********* ProductController listeDesProduits() ");
         List<Product> products = productDao.findAll();
@@ -33,7 +34,7 @@ public class ProductController implements HealthIndicator {
         return listeLimitee;
     }
     // Récuperer un produit par son id
-    @GetMapping(value = "/Produits/{id}")
+    @GetMapping( "/produits/{id}")
     public Optional<Product> recupererUnProduit(@PathVariable int id) throws ProductNotFoundException {
         System.out.println(" ********* ProductController recupererUnProduit(@PathVariable int id) ");
         Optional<Product> product = productDao.findById(id);

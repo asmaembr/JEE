@@ -3,15 +3,21 @@ package com.myhr.api_sb.controller;
 import com.myhr.api_sb.model.Employee;
 import com.myhr.api_sb.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
-
+@EnableCircuitBreaker
+@Configuration
+@EnableHystrixDashboard
 @RestController
 public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
+    @Hystrix
 
     @GetMapping("/employees")
     public Iterable<Employee> getEmployees() {

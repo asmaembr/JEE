@@ -20,7 +20,7 @@ public class PaiementService {
         return paiementRepository.findPaiementByClientName(name);
     }
 
-    public void save(Paiement paiement) {
-          paiementRepository.save(paiement);
+    public Paiement save(Paiement paiement) {
+          return paiementRepository.save(paiement);
     }
 }

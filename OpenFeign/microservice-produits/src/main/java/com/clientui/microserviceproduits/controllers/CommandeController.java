@@ -1,5 +1,6 @@
 package com.clientui.microserviceproduits.controllers;
 
+import com.clientui.microserviceproduits.Dto.CommandeDto;
 import com.clientui.microserviceproduits.models.Commande;
 import com.clientui.microserviceproduits.services.CommandeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import java.util.List;
 public class CommandeController {
     @Autowired
     private CommandeService commandeService;
+
     @GetMapping("/commandes")
     public List<Commande> Commandes() {
         return commandeService.findAll();
@@ -23,7 +25,7 @@ public class CommandeController {
     }
 
     @PostMapping("/commandes")
-    public Commande addCommande(@RequestBody Commande commande) {
+    public Commande addCommande(@RequestBody CommandeDto commande) {
         return commandeService.save(commande);
     }
 }

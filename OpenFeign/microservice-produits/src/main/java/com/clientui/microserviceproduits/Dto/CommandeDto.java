@@ -13,9 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CommandeDto {
-    Long id;
     LocalDate date;
-    Double total;
     String adresse;
     List<Long> products= new ArrayList<>();
 }

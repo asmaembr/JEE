@@ -17,7 +17,7 @@ public class PaiementController {
         return paiementService.findAll();
     }
 
-    @GetMapping("/paiement/{id}")
+    @GetMapping("/paiement/{name}")
     public List<Paiement> Paiement(@PathVariable String name) {
         return paiementService.findByClientName(name);
     }

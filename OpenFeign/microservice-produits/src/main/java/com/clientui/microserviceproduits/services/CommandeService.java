@@ -16,7 +16,12 @@ public class CommandeService {
     public List<Commande> findAll() {
         return commandeRepository.findAll();
     }
+
     public List<Commande>findCommandesByDate(LocalDate date) {
         return commandeRepository.findCommandesByDateBefore(date);
+    }
+
+    public Commande save(Commande commande) {
+        return commandeRepository.save(commande);
     }
 }

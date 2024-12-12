@@ -1,8 +1,7 @@
-package com.clientui.microserviceproduits.controllers;
+package com.clientui.microservicepaiement.controllers;
 
 import com.clientui.microserviceproduits.Dto.PaiementDto;
 import com.clientui.microserviceproduits.models.Paiement;
-import com.clientui.microserviceproduits.models.Product;
 import com.clientui.microserviceproduits.services.PaiementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

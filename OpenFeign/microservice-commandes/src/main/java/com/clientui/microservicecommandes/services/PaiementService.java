@@ -1,4 +1,4 @@
-package com.clientui.microserviceproduits.services;
+package com.clientui.microservicecommandes.services;
 
 import com.clientui.microserviceproduits.Dto.PaiementDto;
 import com.clientui.microserviceproduits.models.Paiement;

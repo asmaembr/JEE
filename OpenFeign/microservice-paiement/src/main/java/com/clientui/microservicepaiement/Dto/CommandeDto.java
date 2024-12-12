@@ -1,4 +1,4 @@
-package com.clientui.microserviceproduits.Dto;
+package com.clientui.microservicepaiement.Dto;
 
 import lombok.Data;
 

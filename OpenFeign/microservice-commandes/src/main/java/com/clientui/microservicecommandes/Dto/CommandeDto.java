@@ -1,4 +1,4 @@
-package com.clientui.microserviceproduits.Dto;
+package com.clientui.microservicecommandes.Dto;
 
 import lombok.Data;
 

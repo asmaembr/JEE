@@ -1,4 +1,4 @@
-package com.clientui.microserviceproduits.controllers;
+package com.clientui.microservicecommandes.controllers;
 
 import com.clientui.microserviceproduits.Dto.CommandeDto;
 import com.clientui.microserviceproduits.models.Commande;

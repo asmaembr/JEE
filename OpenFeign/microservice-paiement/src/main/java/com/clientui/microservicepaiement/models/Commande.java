@@ -1,4 +1,4 @@
-package com.clientui.microserviceproduits.models;
+package com.clientui.microservicepaiement.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
